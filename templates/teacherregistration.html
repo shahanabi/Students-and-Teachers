@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Registration{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <div style="border: 4px; border-color: black; width: 500px; height: 450px;  box-shadow: 1px 1px 5px; margin-left: 300px; background-color: azure;">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 style="text-align: center;">Teacher Registration</h2>
+            <label for="" style="margin-left: 50px; ">Name</label>
+            <label for="" style="margin-left:200px ; ">Subject</label>
+            <input type="text" placeholder="name" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="name">
+            <input type="text" placeholder="subject" style="margin-left:50px ; border-color: black; border-radius: 4px;" name="subject"><br><br>
+            <label for="" style="margin-left: 50px; ">Email</label>
+            <label for="" style="margin-left:180px ; ">phonenumber</label>
+            <input type="text" placeholder="email" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="email">
+            <input type="number" placeholder="phonenumber" style="margin-left:50px ; border-color: black; border-radius: 4px;" name="phonenumber"><br><br>
+            <div>
+            <label for="" style="margin-left:50px ; ">Image</label><br>
+            <input type="file" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="image"><br><br>
+            </div>
+            <div>
+                <label for="" style="margin-left: 50px; ">Password</label><br>
+                <input type="password" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="password"><br><br><br>
+            </div>
+            <button style=" width: 400px; margin-left: 50px; color: white; background-color: black; border-radius: 4px;" >Register</button>
+
+           
+    
+        </form>
+        </div>
+
+
+        {% endblock %}

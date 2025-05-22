@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card profile-card shadow-lg border-0 p-4">
+                <!-- Profile Picture -->
+                <div class="text-center">
+                    <div class="profile-pic mx-auto">
+                        <img src="../media/{{ result.image }}" alt="Profile Picture" 
+                             class="rounded-circle img-fluid" 
+                             style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #6c757d;">
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="text-center mt-4">
+                    <h2 class="fw-bold text-primary">{{ result.firstname }} {{ result.lastname }}</h2>
+                    <p class="text-muted mb-2">{{ result.email }}</p>
+                    <p class="fw-light text-secondary">{{ result.pname }}</p>
+                    <p class="small text-muted">{{ result.address }}</p>
+                    <p class="small text-muted">Born: {{ result.dob }}</p>
+
+                    <!-- Badges -->
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">Professional</span>
+                        <span class="badge bg-success">Verified</span>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="text-center mt-4">
+                    <ul class="social-list d-flex justify-content-center list-unstyled">
+                        <li class="mx-2">
+                            <a href="#" class="social-icon text-primary">
+                                <i class="fa fa-facebook fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#" class="social-icon text-info">
+                                <i class="fa fa-dribbble fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#" class="social-icon text-danger">
+                                <i class="fa fa-instagram fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#" class="social-icon text-primary">
+                                <i class="fa fa-linkedin fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="#" class="social-icon text-danger">
+                                <i class="fa fa-google fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-outline-primary px-4 rounded-pill">Message</button>
+                    <button class="btn btn-primary px-4 ms-2 rounded-pill">Contact</button>
+                    <a href="{% url 'studentprofileedit' id=result.id %}" class="btn btn-warning px-4 ms-2 rounded-pill">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+    /* Card Styling */
+    .profile-card {
+        border-radius: 1.5rem;
+        background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+        padding: 2rem;
+    }
+
+    /* Profile Picture Styling */
+    .profile-pic img {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .profile-pic img:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Social Links */
+    .social-list li a {
+        color: #6c757d;
+        font-size: 1.8rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-list li a:hover {
+        transform: scale(1.2);
+    }
+
+    /* Typography */
+    .text-primary {
+        color: #007bff !important;
+    }
+
+    .text-secondary {
+        color: #6c757d !important;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .btn-outline-primary {
+        border: 2px solid #007bff;
+        color: #007bff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-warning {
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+</style>
+
+{% endblock %}

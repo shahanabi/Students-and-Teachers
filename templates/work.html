@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Homework{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5" >
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Homework</h4>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'givehomework' id=result.id %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label" for="studentName">Student Name</label>
+                    <input class="form-control" type="text" value="{{result.firstname}}" id="studentName" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Works</label>
+                    <textarea class="form-control" id="comments" placeholder="Questions" style="height: 100px" name="description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="date">Date</label>
+                    <input type="date" class="form-control" id="date" name="submissiondate">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary" style="width: 200px;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

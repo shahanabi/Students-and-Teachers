@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Registration{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <div style="border: 4px; border-color: black; width: 500px; height: 600px;  box-shadow: 1px 1px 5px; margin-left: 300px; background-color: azure;">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 style="text-align: center;">Registration</h2>
+            <label for="" style="margin-left: 50px; ">First Name</label>
+            <label for="" style="margin-left:151px ; ">Last Name</label>
+            <input type="text" placeholder="first name" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="firstname">
+            <input type="text" placeholder="last name" style="margin-left:50px ; border-color: black; border-radius: 4px;" name="lastname"><br><br>
+            <label for="" style="margin-left: 50px; ">Email Address</label>
+            <label for="" style="margin-left:127px ; ">Parent Name</label>
+            <input type="text" placeholder="email address" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="email">
+            <input type="text" placeholder="parant name" style="margin-left:50px ; border-color: black; border-radius: 4px;" name="pname"><br><br>
+            <label for="" style="margin-left: 50px; ">Address</label><br>
+           
+            <input type="text" placeholder="address" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="address"><br><br>
+            <div>
+                <label for="" style="margin-left:50px ; ">Image apload</label><br>
+                <input type="file" style=" border-color: black; border-radius: 4px; margin-left: 50px;" name="image"><br><br>
+            </div>
+            <label for="" style="margin-left: 50px; ">D of B</label><br>
+            <input type="date" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="dob"><br><br>
+            <div>
+                <label for="" style="margin-left: 50px; ">Password</label><br>
+                <input type="password" style="margin-left: 50px; border-color: black; border-radius: 4px;" name="password"><br><br><br>
+            </div>
+            <button style=" width: 400px; margin-left: 50px; color: white; background-color: black; border-radius: 4px;" >Register</button>
+
+           
+    
+        </form>
+        </div>
+
+        {% endblock %}
+

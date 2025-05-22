@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Registration{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Email</th>
+                <th scope="col">phonenumber</th>
+                <th scope="col">image</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in pc %}
+            <tr>
+                <td>{{p.name}}</td>
+                <td>{{p.subject}}</td>
+                <td>{{p.email}}</td>
+                <td>{{p.phonenumber}}</td>
+                <td><img src="{{p.image.url}}" class="" alt="" style="width: 100px; height: 130px;"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% endblock %}

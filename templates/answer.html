@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Homework{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0 text-center">Homework</h4>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'giveanswer' id=result.id %}" method="post">
+                {% csrf_token %}
+                
+                <!-- Teacher Name -->
+                <div class="mb-4">
+                    <label class="form-label" for="teachername">Teacher Name</label>
+                    <input 
+                        class="form-control bg-light border-0" 
+                        type="text" 
+                        value="{{res.teachername}}"
+                        id="teachername" 
+                        readonly 
+                        style="font-size: 1rem; padding: 0.75rem;">
+                </div>
+                
+                <!-- Question -->
+                <div class="mb-4">
+                    <label class="form-label" for="question">Question</label>
+                    <input 
+                        class="form-control bg-light border-0" 
+                        type="text" 
+                        value="{{res.description}}"
+                        id="question" 
+                        readonly 
+                        style="font-size: 1rem; padding: 0.75rem;">
+                </div>
+
+                <!-- Answer -->
+                <div class="mb-4">
+                    <label for="answer" class="form-label">Answer</label>
+                    <textarea 
+                        class="form-control bg-light border-1 rounded-3" 
+                        id="answer" 
+                        placeholder="Type your answer here..." 
+                        style="height: 150px; font-size: 1rem; padding: 1rem; resize: none;" 
+                        name="answer_text"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid text-center">
+                    <button 
+                        type="submit" 
+                        class="btn btn-primary" 
+                        style="width: 200px; font-size: 1.1rem; font-weight: bold;">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
